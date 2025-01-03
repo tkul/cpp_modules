@@ -1,4 +1,3 @@
-// Contact.cpp
 #include "contact.hpp"
 
 void Contact::setFirstName(const std::string &name) { firstName = name; }

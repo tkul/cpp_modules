@@ -26,9 +26,9 @@ void PhoneBook::addContact() {
     std::getline(std::cin, input);
     newContact.setDarkestSecret(input);
 
-    if (contactCount < 8) {
+    if (contactCount < 8)
         contacts[contactCount++] = newContact;
-    } else {
+    else {
         contacts[oldestIndex] = newContact;
         oldestIndex = (oldestIndex + 1) % 8;
     }
