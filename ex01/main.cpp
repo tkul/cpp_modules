@@ -1,15 +1,15 @@
 #include "phonebook.hpp"
 
-int main()
-{
+int main() {
     PhoneBook phoneBook;
     std::string command;
 
-    while (true)
-    {
+    while (true) {
         std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, command);
-
+        if (!std::getline(std::cin, command)) {
+            std::cout << "\nEOF detected, exiting program" << std::endl;
+            break;
+        }
         if (command == "ADD")
             phoneBook.addContact();
         else if (command == "SEARCH")
@@ -19,6 +19,5 @@ int main()
         else 
             std::cout << "Unknown command!" << std::endl;
     }
-
-    return 0;
+    return (0);
 }
