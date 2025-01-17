@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main() {
     PhoneBook phoneBook;
@@ -16,7 +16,7 @@ int main() {
             phoneBook.searchContacts();
         else if (command == "EXIT")
             break;
-        else 
+        else
             std::cout << "Unknown command!" << std::endl;
     }
     return (0);

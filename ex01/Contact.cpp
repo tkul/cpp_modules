@@ -1,4 +1,4 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
 void Contact::setFirstName(const std::string &name) { firstName = name; }
 void Contact::setLastName(const std::string &name) { lastName = name; }
