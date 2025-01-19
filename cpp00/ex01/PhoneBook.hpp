@@ -17,4 +17,7 @@ public:
     void searchContacts() const;
 };
 
+void set();
+void print(const Contact contacts[], int index);
+
 #endif

@@ -2,22 +2,16 @@
 
 PhoneBook::PhoneBook() : contactCount(0), oldestIndex(0) {}
 
-bool is_empty(const std::string &input) {
-    if (input.empty()) {
-        std::cout << "This section cannot be empty!" << std::endl;
-        std::cin.clear();
-        return true;
-    }
-    return false;
-}
-
 bool is_valid(std::string &input) {
     if (!std::getline(std::cin, input)) {
         std::cin.clear();
         return true;
     }
-    if (is_empty(input))
+    if (input.empty()) {
+        std::cout << "This section cannot be empty!" << std::endl;
+        std::cin.clear();
         return true;
+    }
     return false;
 }
 
