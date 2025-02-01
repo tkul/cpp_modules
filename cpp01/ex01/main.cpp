@@ -11,5 +11,6 @@ int main() {
     }
 
     delete[] horde;
+    std::cout << "Zombies have been deleted." << std::endl;
     return 0;
 }

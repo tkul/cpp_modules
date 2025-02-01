@@ -2,7 +2,6 @@
 #define ZOMBIE_H
 
 #include <iostream>
-#include <string>
 
 class Zombie {
 private:
