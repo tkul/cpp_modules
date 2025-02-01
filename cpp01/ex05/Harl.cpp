@@ -1,45 +1,51 @@
 #include "Harl.hpp"
 
-void Harl::debug(void)
-{
+void Harl::debug(void) {
     std::cout << "[ DEBUG ]\n";
-    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger.\n" << std::endl;
+    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
 
-void Harl::info(void)
-{
+void Harl::info(void) {
     std::cout << "[ INFO ]\n";
-    std::cout << "I cannot believe adding extra bacon costs more money.\n" << std::endl;
+    std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void Harl::warning(void)
-{
+void Harl::warning(void) {
     std::cout << "[ WARNING ]\n";
-    std::cout << "I think I deserve to have some extra bacon for free.\n" << std::endl;
+    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
-void Harl::error(void)
-{
+void Harl::error(void) {
     std::cout << "[ ERROR ]\n";
-    std::cout << "This is unacceptable! I want to speak to the manager now.\n" << std::endl;
+    std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::complain(std::string level)
-{
-    void (Harl::*funcs[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+int Harl::getLevelIndex(std::string level) {
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    bool found = false;
-
-    for (int i = 0; i < 4; i++)
-    {
-        if (level == levels[i])
-        {
-            (this->*funcs[i])();
-            found = true;
-            break;
-        }
-    }
     
-    if (!found)
+    for (int i = 0; i < 4; i++) {
+        if (level == levels[i])
+            return i;
+    }
+    return -1;
+}
+
+void Harl::complain(std::string level) {
+    int levelIndex = getLevelIndex(level);
+    
+    if (levelIndex == -1) {
         std::cout << "[ Probably complaining about insignificant problems ]\n" << std::endl;
+        return;
+    }
+
+    void (Harl::*complainPtr[])() = {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
+    
+    for (int i = levelIndex; i < 4; i++) {
+        (this->*complainPtr[i])();
+    }
 }

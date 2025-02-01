@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 
 void	replace_in_file(const std::string& filename, const std::string& s1, const std::string& s2) {
 	std::ifstream inFile(filename.c_str());
