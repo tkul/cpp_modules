@@ -45,7 +45,5 @@ void Harl::complain(std::string level) {
         &Harl::error
     };
     
-    for (int i = levelIndex; i < 4; i++) {
-        (this->*complainPtr[i])();
-    }
+    (this->*complainPtr[levelIndex])();
 }

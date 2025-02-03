@@ -1,15 +1,13 @@
-CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME = unnecessary_violence
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = unnecessary_violence
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
-
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)

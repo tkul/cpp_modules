@@ -1,15 +1,13 @@
-CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-
+NAME = brain
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = brain
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
-
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
