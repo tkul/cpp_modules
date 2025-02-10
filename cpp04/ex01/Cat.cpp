@@ -31,8 +31,15 @@ void Cat::makeSound() const {
     std::cout << "Meow!" << std::endl;
 }
 
-void Cat::getBrain() const {
-    for (int i = 0; i < 100; i++) {
-        std::cout << "Idea " << i << ": " << brain->getIdea(i) << std::endl;
+void Cat::setIdea(int index, const std::string& idea) {
+    if (index >= 0 && index < 100) {
+        brain->setIdea(index, idea);
     }
+}
+
+std::string Cat::getIdea(int index) const {
+    if (index >= 0 && index < 100) {
+        return brain->getIdea(index);
+    }
+    return "";
 }

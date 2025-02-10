@@ -32,8 +32,15 @@ void Dog::makeSound() const {
     std::cout << "Woof!" << std::endl;
 }
 
-void Dog::getBrain() const {
-    for (int i = 0; i < 100; i++) {
-        std::cout << "Idea " << i << ": " << brain->getIdea(i) << std::endl;
+void Dog::setIdea(int index, const std::string& idea) {
+    if (index >= 0 && index < 100) {
+        brain->setIdea(index, idea);
     }
+}
+
+std::string Dog::getIdea(int index) const {
+    if (index >= 0 && index < 100) {
+        return brain->getIdea(index);
+    }
+    return "";
 }

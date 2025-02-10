@@ -31,7 +31,7 @@ Brain::~Brain() {
 
 void Brain::setIdea(int index, const std::string& idea) {
     if (index >= 0 && index < 100) {
-        ideas[index] = idea;
+        this->ideas[index] = idea;
     }
 }
 
