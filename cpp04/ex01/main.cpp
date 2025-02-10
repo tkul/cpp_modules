@@ -12,20 +12,21 @@ int main()
 
     std::cout << "---------------------" << std::endl;
 
-    int k = -1;
     Animal* animals[4];
-    while (++k < 4) {
-        if (k % 2 == 0)
+
+    for (int k = 0; k < 4; ++k) {
+        if (k % 2 == 0) {
             animals[k] = new Dog();
-        else
+        } else {
             animals[k] = new Cat();
+        }
     }
-    k = -1;
-    while (++k < 4){
+
+    for (int k = 0; k < 4; ++k) {
         animals[k]->makeSound();
     }
-    k = -1;
-    while (++k < 4){
+
+    for (int k = 0; k < 4; ++k) {
         delete animals[k];
     }
 
@@ -40,6 +41,6 @@ int main()
 
     std::cout << original.getIdea(0) << std::endl;
     std::cout << copy.getIdea(0) << std::endl;
-        
+
     return 0;
 }
