@@ -4,8 +4,9 @@ AAnimal::AAnimal() : type("") {
     std::cout << "AAnimal default constructor called" << std::endl;
 }
 
-AAnimal::AAnimal(const AAnimal& other) : type(other.type) {
+AAnimal::AAnimal(const AAnimal& other) {
     std::cout << "AAnimal copy constructor called" << std::endl;
+    *this = other;
 }
 
 AAnimal& AAnimal::operator=(const AAnimal& other) {

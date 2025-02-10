@@ -9,6 +9,8 @@ public:
     WrongCat(const WrongCat& other);
     WrongCat& operator=(const WrongCat& other);
     virtual ~WrongCat();
+
+    void makeSound() const;
 };
 
 #endif

@@ -30,3 +30,9 @@ Cat::~Cat() {
 void Cat::makeSound() const {
     std::cout << "Meow!" << std::endl;
 }
+
+void Cat::getBrain() const {
+    for (int i = 0; i < 100; i++) {
+        std::cout << "Idea " << i << ": " << brain->getIdea(i) << std::endl;
+    }
+}

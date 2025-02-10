@@ -31,3 +31,9 @@ Dog::~Dog() {
 void Dog::makeSound() const {
     std::cout << "Woof!" << std::endl;
 }
+
+void Dog::getBrain() const {
+    for (int i = 0; i < 100; i++) {
+        std::cout << "Idea " << i << ": " << brain->getIdea(i) << std::endl;
+    }
+}
