@@ -5,13 +5,6 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
-
-    std::cout << "---------------------" << std::endl;
-
     Animal* animals[4];
 
     for (int k = 0; k < 4; ++k) {
@@ -29,6 +22,7 @@ int main()
     for (int k = 0; k < 4; ++k) {
         delete animals[k];
     }
+
 
     std::cout << "---------------------" << std::endl;
 

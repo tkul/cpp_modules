@@ -2,10 +2,12 @@
 
 WrongCat::WrongCat() {
     type = "WrongCat";
+    brain = new Brain();
     std::cout << "WrongCat default constructor called" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
+    brain = new Brain(*(other.brain));
     std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
@@ -16,6 +18,7 @@ WrongCat& WrongCat::operator=(const WrongCat& other) {
 }
 
 WrongCat::~WrongCat() {
+    delete brain;
     std::cout << "WrongCat destructor called" << std::endl;
 }
 

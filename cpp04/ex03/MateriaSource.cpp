@@ -29,7 +29,8 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria* m) {
-    if (!m) return;
+    if (!m)
+        return;
     
     for (int i = 0; i < maxTemplates; i++) {
         if (!templates[i]) {

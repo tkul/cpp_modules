@@ -27,5 +27,27 @@ int main() {
     delete me;
     delete src;
 
+    std::cout << "---------------------" << std::endl;
+
+    IMateriaSource* materia  = new MateriaSource();
+    materia->learnMateria(new Ice());
+    materia->learnMateria(new Cure());
+
+    ICharacter* character = new Character("character");
+
+    AMateria* materia1 = materia->createMateria("ice");
+    character->equip(materia1);
+    AMateria* materia2 = materia->createMateria("cure");
+    character->equip(materia2);
+
+    ICharacter* enemy = new Character("enemy");
+
+    character->use(0, *enemy);
+    character->use(1, *enemy);
+
+    delete enemy;
+    delete character;
+    delete materia;
+
     return 0;
 }
