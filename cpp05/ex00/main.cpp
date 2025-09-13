@@ -7,6 +7,7 @@ int main() {
         b1.incrementGrade();
         std::cout << b1 << std::endl;
         b1.incrementGrade();
+
     } catch (const std::exception& e) {
         std::cout << "heyyy ı am here" << std::endl;
         std::cerr << e.what() << std::endl;
@@ -18,18 +19,21 @@ int main() {
         b2.decrementGrade();
         std::cout << b2 << std::endl;
         b2.decrementGrade();
+
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 
     try {
         Bureaucrat b3("Charlie", 0);
+
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 
     try {
         Bureaucrat b4("Dave", 151);
+        
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
