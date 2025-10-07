@@ -11,32 +11,26 @@ int main()
     ShrubberyCreationForm shrubbery("Target2");
     PresidentialPardonForm presidential("Target3");
 
-    try
-    {
+    try {
         bob.signForm(robotomy);
         bob.executeForm(robotomy);
     }
-    catch (const std::exception &e)
-    {
+    catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 
-    try
-    {
+    try {
         bob.signForm(shrubbery);
         bob.executeForm(shrubbery);
     }
-    catch (const std::exception &e)
-    {
+    catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
-    try
-    {
+    try {
         bob.signForm(presidential);
         bob.executeForm(presidential);
     }
-    catch (const std::exception &e)
-    {
+    catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 

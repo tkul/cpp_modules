@@ -14,8 +14,11 @@ int main()
     }
 
     try {
-        Bureaucrat brad("Brad", 49);
+        Bureaucrat brad("Brad", 51);
         Form contract2("Contract", 50, 100);
+        brad.signForm(contract2);
+        std::cout << contract2 << std::endl;
+        brad.incrementGrade();
         brad.signForm(contract2);
         std::cout << contract2 << std::endl;
     }
