@@ -1,7 +1,6 @@
 #include "Bureaucrat.hpp"
 
-int main()
-{
+int main() {
     try {
         Bureaucrat b1("Alice", 2);
         std::cout << b1 << std::endl;

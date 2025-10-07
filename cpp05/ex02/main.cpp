@@ -4,8 +4,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main()
-{
+int main() {
     Bureaucrat bob("Bob", 1);
     RobotomyRequestForm robotomy("Target1");
     ShrubberyCreationForm shrubbery("Target2");

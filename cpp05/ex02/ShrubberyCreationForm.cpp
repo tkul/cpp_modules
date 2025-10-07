@@ -26,20 +26,24 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
     if (executor.getGrade() > getExecGrade())
         throw AForm::GradeTooLowException();
 
-    std::ofstream ofs(target + "_shrubbery");
-    if (!ofs) {
-        std::cerr << "Error: Could not open file " << target + "_shrubbery" << std::endl;
+    std::string filename = this->target + "_shrubbery";
+    std::ofstream file(filename.c_str());
+    
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not create file " << filename << std::endl;
         return;
     }
+    
+    file << "       ###" << std::endl;
+    file << "      #o###" << std::endl;
+    file << "    #####o###" << std::endl;
+    file << "   #o#\\#|#/###" << std::endl;
+    file << "    ###\\|/#o#" << std::endl;
+    file << "     # }|{  #" << std::endl;
+    file << "       }|{" << std::endl;
+    file << std::endl;
 
-    ofs << "       _-_\n"
-           "    /~~   ~~\\\n"
-           " /~~         ~~\\\n"
-           "{               }\n"
-           " \\  _-     -_  /\n"
-           "   ~  \\\\ //  ~\n"
-           "_- -   | | _- _\n"
-           "  _ -  | |   -_\n"
-           "      // \\\\\n";
-    ofs.close();
+    file.close();
+
+    std::cout << "Shrubbery created in file: " << filename << std::endl;
 }
