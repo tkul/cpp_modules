@@ -27,13 +27,11 @@ public:
     void beSigned(const class Bureaucrat &bureaucrat);
     virtual void execute(const class Bureaucrat &executor) const = 0;
 
-    class GradeTooHighException : public std::exception
-    {
+    class GradeTooHighException : public std::exception {
         const char *what() const throw();
     };
 
-    class GradeTooLowException : public std::exception
-    {
+    class GradeTooLowException : public std::exception {
         const char *what() const throw();
     };
 };

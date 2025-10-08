@@ -2,36 +2,25 @@
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : AForm("Robotomy Request", 72, 45), target("default")
-{
-}
+    : AForm("Robotomy Request", 72, 45), target("default") {}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-    : AForm("Robotomy Request", 72, 45), target(target)
-{
-}
+    : AForm("Robotomy Request", 72, 45), target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-    : AForm(other), target(other.target)
-{
-}
+    : AForm(other), target(other.target) {}
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
-{
-    if (this != &other)
-    {
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
+    if (this != &other) {
         AForm::operator=(other);
         this->target = other.target;
     }
     return *this;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
-{
-}
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
-{
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
     if (!getIsSigned())
         throw AForm::GradeTooLowException();
     if (executor.getGrade() > getExecGrade())
