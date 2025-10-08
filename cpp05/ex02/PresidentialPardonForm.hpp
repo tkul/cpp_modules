@@ -6,7 +6,7 @@
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 09:41:25 by tkul              #+#    #+#             */
-/*   Updated: 2025/10/08 09:41:26 by tkul             ###   ########.fr       */
+/*   Updated: 2025/10/08 12:16:14 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ private:
     std::string target;
 
 public:
+    PresidentialPardonForm();
     PresidentialPardonForm(const std::string &target);
     PresidentialPardonForm(const PresidentialPardonForm &other);
     PresidentialPardonForm &operator=(const PresidentialPardonForm &other);

@@ -6,7 +6,7 @@
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 09:40:53 by tkul              #+#    #+#             */
-/*   Updated: 2025/10/08 09:40:54 by tkul             ###   ########.fr       */
+/*   Updated: 2025/10/08 13:20:10 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main() {
     try {
-        Bureaucrat alice("Alice", 140);
+        Bureaucrat alice("Alice", 1);
         Form contract("Contract", 50, 100);
         alice.signForm(contract);
         std::cout << contract << std::endl;

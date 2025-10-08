@@ -6,7 +6,7 @@
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 09:42:03 by tkul              #+#    #+#             */
-/*   Updated: 2025/10/08 09:42:04 by tkul             ###   ########.fr       */
+/*   Updated: 2025/10/08 13:16:17 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main() {
     try {
         AForm *scf = someRandomIntern.makeForm("shrubbery creation", "Garden");
         if (scf) {
-            Bureaucrat midGrade("Manager", 140);
+            Bureaucrat midGrade("Manager", 50);
             midGrade.signForm(*scf);
             midGrade.executeForm(*scf);
             delete scf;
@@ -48,7 +48,7 @@ int main() {
     try {
         AForm *ppf = someRandomIntern.makeForm("presidential pardon", "Criminal");
         if (ppf) {
-            Bureaucrat lowGrade("Clerk", 50);
+            Bureaucrat lowGrade("Clerk", 140);
             lowGrade.signForm(*ppf);
             lowGrade.executeForm(*ppf);
             delete ppf;

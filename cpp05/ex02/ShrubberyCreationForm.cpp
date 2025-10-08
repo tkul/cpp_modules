@@ -6,7 +6,7 @@
 /*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 09:41:33 by tkul              #+#    #+#             */
-/*   Updated: 2025/10/08 09:41:34 by tkul             ###   ########.fr       */
+/*   Updated: 2025/10/08 11:55:51 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,18 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
         return;
     }
     
-    file << "       ###" << std::endl;
-    file << "      #o###" << std::endl;
-    file << "    #####o###" << std::endl;
-    file << "   #o#\\#|#/###" << std::endl;
-    file << "    ###\\|/#o#" << std::endl;
-    file << "     # }|{  #" << std::endl;
-    file << "       }|{" << std::endl;
-    file << std::endl;
+        file << "         &&& &&  & &&" << std::endl;
+        file << "     && &/\\&\\|& ()|/ @, &&" << std::endl;
+        file << "     &/\\(/&/&||/& /_/)_&/_&" << std::endl;
+        file << "  &() &/\\&|()|/&/\\ '%\" & ()" << std::endl;
+        file << " &_\\_&&_\\ |& |&&/&__%_/_& &&" << std::endl;
+        file << "&&   && & &| &| /& & % ()& /&&" << std::endl;
+        file << " ()&_---()&\\&\\|&&-&&--%---()~" << std::endl;
+        file << "     &&     \\|||" << std::endl;
+        file << "             |||" << std::endl;
+        file << "             |||" << std::endl;
+        file << "             |||" << std::endl;
+        file << "       , -=-~  .-^- _" << std::endl;
 
     file.close();
 
