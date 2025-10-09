@@ -9,7 +9,9 @@ struct Data {
     float value;
     
     Data();
+    Data(const Data& other);
     Data(int id, const std::string& name, float value);
+    ~Data();
 };
 
 #endif
