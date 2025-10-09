@@ -3,19 +3,16 @@
 #include <cstdlib>
 #include <ctime>
 
-Base* generate(void)
-{
+Base* generate(void) {
     static bool seeded = false;
-    if (!seeded)
-    {
+    if (!seeded) {
         std::srand(std::time(0));
         seeded = true;
     }
     
     int random = std::rand() % 3;
     
-    switch (random)
-    {
+    switch (random) {
         case 0:
             std::cout << "Generated: A" << std::endl;
             return new A();
@@ -30,8 +27,7 @@ Base* generate(void)
     }
 }
 
-void identify(Base* p)
-{
+void identify(Base* p) {
     if (dynamic_cast<A*>(p) != NULL)
         std::cout << "A" << std::endl;
     else if (dynamic_cast<B*>(p) != NULL)
@@ -42,27 +38,23 @@ void identify(Base* p)
         std::cout << "Unknown type" << std::endl;
 }
 
-void identify(Base& p)
-{
+void identify(Base& p) {
     
-    try
-    {
+    try {
         (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
         return;
     }
     catch (std::exception&) {}
-    
-    try
-    {
+
+    try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
         return;
     }
     catch (std::exception&) {}
-    
-    try
-    {
+
+    try {
         (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
         return;

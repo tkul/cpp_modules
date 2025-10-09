@@ -1,8 +1,7 @@
 #include "Serializer.hpp"
 #include <iostream>
 
-int main()
-{
+int main() {
     // Create a Data object
     Data originalData(42, "Hello World", 3.14f);
     Data* originalPtr = &originalData;

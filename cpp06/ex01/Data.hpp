@@ -3,8 +3,7 @@
 
 #include <string>
 
-struct Data
-{
+struct Data {
     int id;
     std::string name;
     float value;

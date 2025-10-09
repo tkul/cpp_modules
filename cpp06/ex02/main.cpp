@@ -1,18 +1,15 @@
 #include "Base.hpp"
 #include <iostream>
 
-int main()
-{
+int main() {
     std::cout << "=== Testing generate() and identify() functions ===" << std::endl;
     
-    for (int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < 5; i++) {
         std::cout << "\n--- Test " << (i + 1) << " ---" << std::endl;
         
         Base* obj = generate();
-        
-        if (obj == NULL)
-        {
+
+        if (obj == NULL) {
             std::cout << "Generation failed!" << std::endl;
             continue;
         }

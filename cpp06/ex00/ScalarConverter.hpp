@@ -8,8 +8,7 @@
 #include <cstdlib>
 #include <cctype>
 
-class ScalarConverter
-{
+class ScalarConverter {
 private:
     ScalarConverter();
     ScalarConverter(const ScalarConverter& other);
