@@ -11,6 +11,7 @@ struct Data {
     Data();
     Data(const Data& other);
     Data(int id, const std::string& name, float value);
+    Data& operator=(const Data& other);
     ~Data();
 };
 

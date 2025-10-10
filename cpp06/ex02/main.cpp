@@ -26,17 +26,16 @@ int main() {
     std::cout << "\n=== Manual testing with known types ===" << std::endl;
     
     A* a = new A();
-    B* b = new B();
-    C* c = new C();
-    
     std::cout << "\nTesting A object:" << std::endl;
     std::cout << "Pointer: "; identify(a);
     std::cout << "Reference: "; identify(*a);
-    
+
+    B* b = new B();
     std::cout << "\nTesting B object:" << std::endl;
     std::cout << "Pointer: "; identify(b);
     std::cout << "Reference: "; identify(*b);
-    
+
+    C* c = new C();
     std::cout << "\nTesting C object:" << std::endl;
     std::cout << "Pointer: "; identify(c);
     std::cout << "Reference: "; identify(*c);
