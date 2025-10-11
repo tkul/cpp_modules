@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <cmath>
 
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::ScalarConverter(const ScalarConverter& other) { (void)other; }
@@ -8,26 +9,21 @@ ScalarConverter::~ScalarConverter() {}
 bool ScalarConverter::isChar(const std::string& literal) {
     if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'' && literal[1] != '\'')
         return true;
-    
-    if (literal.length() == 1 && !std::isdigit(literal[0]))
+    if (literal.length() == 1 && !isdigit(literal[0]))
         return true;
-    
     return false;
 }
 
 bool ScalarConverter::isInt(const std::string& literal) {
     if (literal.empty())
         return false;
-    
     size_t start = 0;
     if (literal[0] == '+' || literal[0] == '-')
         start = 1;
-    
     if (start >= literal.length())
         return false;
-    
     for (size_t i = start; i < literal.length(); i++) {
-        if (!std::isdigit(literal[i]))
+        if (!isdigit(literal[i]))
             return false;
     }
     return true;
@@ -36,24 +32,20 @@ bool ScalarConverter::isInt(const std::string& literal) {
 bool ScalarConverter::isFloat(const std::string& literal) {
     if (literal.length() < 2 || literal[literal.length() - 1] != 'f')
         return false;
-    
     std::string withoutF = literal.substr(0, literal.length() - 1);
     size_t dotCount = 0;
     size_t start = 0;
-    
     if (withoutF[0] == '+' || withoutF[0] == '-')
         start = 1;
-    
     if (start >= withoutF.length())
         return false;
-    
     for (size_t i = start; i < withoutF.length(); i++) {
         if (withoutF[i] == '.') {
             dotCount++;
             if (dotCount > 1)
                 return false;
         }
-        else if (!std::isdigit(withoutF[i]))
+        else if (!isdigit(withoutF[i]))
             return false;
     }
     return dotCount == 1;
@@ -62,23 +54,19 @@ bool ScalarConverter::isFloat(const std::string& literal) {
 bool ScalarConverter::isDouble(const std::string& literal) {
     if (literal.empty())
         return false;
-    
     size_t dotCount = 0;
     size_t start = 0;
-    
     if (literal[0] == '+' || literal[0] == '-')
         start = 1;
-    
     if (start >= literal.length())
         return false;
-    
     for (size_t i = start; i < literal.length(); i++) {
         if (literal[i] == '.') {
             dotCount++;
             if (dotCount > 1)
                 return false;
         }
-        else if (!std::isdigit(literal[i]))
+        else if (!isdigit(literal[i]))
             return false;
     }
     return dotCount == 1;
@@ -90,7 +78,7 @@ bool ScalarConverter::isPseudoLiteral(const std::string& literal) {
 }
 
 void ScalarConverter::printChar(double value) {
-    if (std::isnan(value) || std::isinf(value))
+    if (isnan(value) || isinf(value))
         std::cout << "char: impossible" << std::endl;
     else if (value < 0 || value > 127)
         std::cout << "char: impossible" << std::endl;
@@ -101,7 +89,7 @@ void ScalarConverter::printChar(double value) {
 }
 
 void ScalarConverter::printInt(double value) {
-    if (std::isnan(value) || std::isinf(value))
+    if (isnan(value) || isinf(value))
         std::cout << "int: impossible" << std::endl;
     else if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
         std::cout << "int: impossible" << std::endl;
@@ -110,9 +98,9 @@ void ScalarConverter::printInt(double value) {
 }
 
 void ScalarConverter::printFloat(double value) {
-    if (std::isnan(value))
+    if (isnan(value))
         std::cout << "float: nanf" << std::endl;
-    else if (std::isinf(value)) {
+    else if (isinf(value)) {
         if (value > 0)
             std::cout << "float: +inff" << std::endl;
         else
@@ -128,9 +116,9 @@ void ScalarConverter::printFloat(double value) {
 }
 
 void ScalarConverter::printDouble(double value) {
-    if (std::isnan(value))
+    if (isnan(value))
         std::cout << "double: nan" << std::endl;
-    else if (std::isinf(value)) {
+    else if (isinf(value)) {
         if (value > 0)
             std::cout << "double: +inf" << std::endl;
         else
@@ -177,7 +165,6 @@ void ScalarConverter::convertFromDouble(double d) {
 
 void ScalarConverter::handlePseudoLiteral(const std::string& literal) {
     double value;
-    
     if (literal == "nanf" || literal == "nan")
         value = std::numeric_limits<double>::quiet_NaN();
     else if (literal == "+inff" || literal == "+inf")
@@ -186,7 +173,6 @@ void ScalarConverter::handlePseudoLiteral(const std::string& literal) {
         value = -std::numeric_limits<double>::infinity();
     else
         return;
-    
     convertFromDouble(value);
 }
 
@@ -202,9 +188,9 @@ void ScalarConverter::convert(const std::string& literal) {
         convertFromChar(c);
     }
     else if (isInt(literal)) {
-        long long temp = std::atoll(literal.c_str());
+        long temp = atol(literal.c_str());
         if (temp < std::numeric_limits<int>::min() || temp > std::numeric_limits<int>::max()) {
-            double d = std::atof(literal.c_str());
+            double d = atof(literal.c_str());
             convertFromDouble(d);
         }
         else {
@@ -213,11 +199,11 @@ void ScalarConverter::convert(const std::string& literal) {
         }
     }
     else if (isFloat(literal)) {
-        float f = static_cast<float>(std::atof(literal.c_str()));
+        float f = static_cast<float>(atof(literal.c_str()));
         convertFromFloat(f);
     }
     else if (isDouble(literal)) {
-        double d = std::atof(literal.c_str());
+        double d = atof(literal.c_str());
         convertFromDouble(d);
     }
     else {
