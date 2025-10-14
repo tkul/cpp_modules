@@ -7,19 +7,19 @@
 #include <climits>
 
 class Span {
-public:
-    Span(unsigned int n);
-    Span(const Span &other);
-    Span &operator=(const Span &other);
-    ~Span();
+    private:
+        unsigned int maxSize;
+        std::vector<int> numbers;
+    public:
+        Span(unsigned int n);
+        Span(const Span &other);
+        Span &operator=(const Span &other);
+        ~Span();
 
-    void addNumber(int number);
-    void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-    int shortestSpan() const;
-    int longestSpan() const;
+        void addNumber(int number);
+        void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        int shortestSpan() const;
+        int longestSpan() const;
 
-private:
-    unsigned int maxSize;
-    std::vector<int> numbers;
 };
 #endif

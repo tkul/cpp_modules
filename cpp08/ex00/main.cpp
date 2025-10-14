@@ -12,7 +12,14 @@ int main() {
     vec.push_back(3);
     vec.push_back(4);
     vec.push_back(5);
-    
+    vec.pop_back();
+
+    std::cout << "Vector contents: ";
+    for (size_t i = 0; i < vec.size(); ++i) {
+        std::cout << vec[i] << " ";
+    }
+    std::cout << std::endl;
+
     try {
         std::vector<int>::iterator it = easyfind(vec, 3);
         std::cout << "Found value 3 in vector at position: " << std::distance(vec.begin(), it) << std::endl;
@@ -34,6 +41,13 @@ int main() {
     lst.push_back(20);
     lst.push_back(30);
     lst.push_back(40);
+    lst.push_front(0);
+
+    std::cout << "List contents: ";
+    for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
     
     try {
         easyfind(lst, 20);
@@ -56,7 +70,14 @@ int main() {
     deq.push_back(14);
     deq.push_back(21);
     deq.push_back(28);
-    
+    deq.push_front(0);
+
+    std::cout << "Deque contents: ";
+    for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
     try {
         std::deque<int>::iterator it = easyfind(deq, 14);
         std::cout << "Found value 14 in deque at position: " << std::distance(deq.begin(), it) << std::endl;
@@ -74,7 +95,12 @@ int main() {
     printTitle("Testing with empty container");
 
     std::vector<int> empty_vec;
-    
+    std::cout << "Empty vector contents: ";
+    for (size_t i = 0; i < empty_vec.size(); ++i) {
+        std::cout << empty_vec[i] << " ";
+    }
+    std::cout << std::endl;
+
     try {
         easyfind(empty_vec, 1);
         std::cout << "Found value 1 in empty vector" << std::endl;
