@@ -1,8 +1,11 @@
 #include "easyfind.hpp"
 
+static void printTitle(const std::string &title) {
+	std::cout << "\n==== " << title << " ====\n";
+}
+
 int main() {
-    std::cout << "=== Testing easyfind with std::vector ===" << std::endl;
-    
+    printTitle("Testing easyfind with std::vector");
     std::vector<int> vec;
     vec.push_back(1);
     vec.push_back(2);
@@ -23,9 +26,9 @@ int main() {
     } catch (const NotFoundException& e) {
         std::cout << "Exception caught for value 10: " << e.what() << std::endl;
     }
-    
-    std::cout << "\n=== Testing easyfind with std::list ===" << std::endl;
-    
+
+    printTitle("Testing easyfind with std::list");
+
     std::list<int> lst;
     lst.push_back(10);
     lst.push_back(20);
@@ -45,9 +48,9 @@ int main() {
     } catch (const NotFoundException& e) {
         std::cout << "Exception caught for value 100: " << e.what() << std::endl;
     }
-    
-    std::cout << "\n=== Testing easyfind with std::deque ===" << std::endl;
-    
+
+    printTitle("Testing easyfind with std::deque");
+
     std::deque<int> deq;
     deq.push_back(7);
     deq.push_back(14);
@@ -67,9 +70,9 @@ int main() {
     } catch (const NotFoundException& e) {
         std::cout << "Exception caught for value 99: " << e.what() << std::endl;
     }
-    
-    std::cout << "\n=== Testing with empty container ===" << std::endl;
-    
+
+    printTitle("Testing with empty container");
+
     std::vector<int> empty_vec;
     
     try {
