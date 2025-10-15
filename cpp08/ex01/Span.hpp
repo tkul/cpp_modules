@@ -20,6 +20,7 @@ class Span {
         void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         int shortestSpan() const;
         int longestSpan() const;
+        void printNumbers() const;
 
 };
 #endif

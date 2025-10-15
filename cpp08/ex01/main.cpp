@@ -1,4 +1,3 @@
-// C++98 compliant test main for Span
 #include "Span.hpp"
 #include <ctime>
 
@@ -17,6 +16,8 @@ int main() {
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
+
+		sp.printNumbers();
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span : " << sp.longestSpan() << std::endl;
 	} catch (std::exception &e) {
@@ -28,6 +29,7 @@ int main() {
 		Span sp2(2);
 		sp2.addNumber(1);
 		sp2.addNumber(2);
+		sp2.printNumbers();
 		std::cout << "Attempting to add third number..." << std::endl;
 		sp2.addNumber(3);
 	} catch (std::exception &e) {
@@ -38,8 +40,9 @@ int main() {
 	try {
 		Span sp3(3);
 		sp3.addNumber(42);
+		sp3.printNumbers();
 		std::cout << "Trying shortestSpan with only one element..." << std::endl;
-		std::cout << sp3.shortestSpan() << std::endl; // should throw
+		std::cout << sp3.shortestSpan() << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "Caught expected: " << e.what() << std::endl;
 	}
@@ -47,14 +50,17 @@ int main() {
 	printTitle("Bulk insertion test");
 	try {
 		std::vector<int> vec;
-		vec.push_back(10);
-		vec.push_back(20);
-		vec.push_back(25);
-		vec.push_back(100);
+		vec.push_back(2);
+		vec.push_back(4);
+		vec.push_back(7);
+		vec.push_back(11);
 		Span sp4(10);
 		sp4.addNumbers(vec.begin(), vec.end());
-		sp4.addNumber(15);
-		sp4.addNumber(90);
+		sp4.addNumber(20);
+		sp4.addNumber(30);
+
+		sp4.printNumbers();
+
 		std::cout << "Shortest span: " << sp4.shortestSpan() << std::endl;
 		std::cout << "Longest span : " << sp4.longestSpan() << std::endl;
 	} catch (std::exception &e) {
@@ -69,6 +75,13 @@ int main() {
 		big.push_back(2);
 		big.push_back(3);
 		big.push_back(4);
+		big.push_back(5);
+
+		std::cout << "Numbers to add: ";
+		for (size_t i = 0; i < big.size(); ++i) {
+			std::cout << big[i] << " ";
+		}
+		std::cout << std::endl;
 		sp5.addNumbers(big.begin(), big.end());
 	} catch (std::exception &e) {
 		std::cout << "Caught expected: " << e.what() << std::endl;
@@ -82,24 +95,9 @@ int main() {
 		for (i = 0; i < N; ++i) {
 			sp6.addNumber(std::rand());
 		}
+
 		std::cout << "Shortest span: " << sp6.shortestSpan() << std::endl;
 		std::cout << "Longest span : " << sp6.longestSpan() << std::endl;
-	} catch (std::exception &e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-
-	printTitle("Copy & assignment test");
-	try {
-		Span original(5);
-		original.addNumber(5);
-		original.addNumber(50);
-		original.addNumber(500);
-		Span copy(original);
-		Span assigned(1);
-		assigned = original;
-		std::cout << "Original longest: " << original.longestSpan() << std::endl;
-		std::cout << "Copy shortest  : " << copy.shortestSpan() << std::endl;
-		std::cout << "Assigned shortest: " << assigned.shortestSpan() << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}

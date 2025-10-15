@@ -107,6 +107,36 @@ int main() {
     } catch (const NotFoundException& e) {
         std::cout << "Exception caught for empty vector: " << e.what() << std::endl;
     }
+
+    printTitle("Testing with const container");
+
+    std::vector<int> temp_vec;
+    temp_vec.push_back(5);
+    temp_vec.push_back(10);
+    temp_vec.push_back(15);
+    temp_vec.push_back(20);
+    temp_vec.push_back(25);
+    const std::vector<int> const_vec = temp_vec;
+
+    std::cout << "Const vector contents: ";
+    for (size_t i = 0; i < const_vec.size(); ++i) {
+        std::cout << const_vec[i] << " ";
+    }
+    std::cout << std::endl;
+
+    try {
+        std::vector<int>::const_iterator it = easyfind(const_vec, 15);
+        std::cout << "Found value 15 in const vector at position: " << std::distance(const_vec.begin(), it) << std::endl;
+    } catch (const NotFoundException& e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    try {
+        easyfind(const_vec, 100);
+        std::cout << "Found value 100 in const vector" << std::endl;
+    } catch (const NotFoundException& e) {
+        std::cout << "Exception caught for value 100 in const vector: " << e.what() << std::endl;
+    }
     
     return 0;
 }

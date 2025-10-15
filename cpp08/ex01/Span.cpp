@@ -50,3 +50,13 @@ int Span::longestSpan() const {
     return maxNumber - minNumber;
 }
 
+void Span::printNumbers() const {
+    std::cout << "Span contains " << numbers.size() << " numbers: ";
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        std::cout << numbers[i];
+        if (i < numbers.size() - 1) {
+            std::cout << ", ";
+        }
+    }
+    std::cout << std::endl;
+}
