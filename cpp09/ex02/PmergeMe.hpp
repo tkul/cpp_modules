@@ -6,14 +6,13 @@
 /*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 10:42:10 by tkul              #+#    #+#             */
-/*   Updated: 2025/10/18 10:42:11 by tkul             ###   ########.fr       */
+/*   Updated: 2025/10/18 11:45:53 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 #include <iostream>
-#include <string>
 #include <vector>
 #include <deque>
 #include <sstream>
@@ -26,6 +25,7 @@ class PmergeMe {
         std::vector<int> vec;
         std::deque<int> deq;
 
+        std::vector<size_t> generateJacobsthalSequence(size_t n);
         void fordJohnsonSortVector(std::vector<int>& arr);
         void fordJohnsonSortDeque(std::deque<int>& arr);
         void insertionSortVector(std::vector<int>& arr);

@@ -6,21 +6,27 @@
 /*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 10:42:02 by tkul              #+#    #+#             */
-/*   Updated: 2025/10/18 10:42:03 by tkul             ###   ########.fr       */
+/*   Updated: 2025/10/18 11:33:53 by tkul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int main(int argc, char** argv) {
-    if (argc < 2) {
+int main(int ac, char** av) {
+    if (ac < 2) {
         std::cerr << "Error" << std::endl;
         return 1;
     }
     
-    PmergeMe sorter;
-    sorter.fillContainers(argv + 1, argc - 1);
-    sorter.sortAndDisplay();
+    try {
+        PmergeMe pmm;
+        pmm.fillContainers(av + 1, ac - 1);
+        pmm.sortAndDisplay();
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error" << std::endl;
+        return 1;
+    }
     
     return 0;
 }
