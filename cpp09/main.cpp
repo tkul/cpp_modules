@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    map<int, string>m = {{1, "heyyy"}, {2, "selam"}};
+    map<int, string>m = {{2, "heyyy"}, {3, "selam"}};
 
     m.insert({5, "vay beeeee"});
     
@@ -16,7 +16,7 @@ int main() {
         cout << it2->first << " " << it2->second << endl;
 
     m[2] = "tuceee";
-    m[3] = "uiiyyyyyy";
+    m[1] = "uiiyyyyyy";
 
     map<int, string>::iterator it3;
 
@@ -31,3 +31,15 @@ int main() {
     
     return 0;
 }
+
+// #include <iostream>
+
+// void chance(int &x) {
+//     x = 100;
+// }
+
+// int main () {
+//     int y = 42;
+//     chance(y);
+//     std::cout << y;
+// }

@@ -1,7 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkul <tkul@student.42istanbul.com.tr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/18 10:41:57 by tkul              #+#    #+#             */
+/*   Updated: 2025/10/18 11:15:27 by tkul             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RPN_HPP
 #define RPN_HPP
 #include <iostream>
 #include <stack>
+#include <sstream>
+#include <cctype>
 
 class RPN {
     private:
@@ -15,6 +29,6 @@ class RPN {
         RPN& operator=(const RPN& other);
         ~RPN();
 
-        void evaluate(const std::string& expression);
+        int evaluate(const std::string& expression);
 };
 #endif
