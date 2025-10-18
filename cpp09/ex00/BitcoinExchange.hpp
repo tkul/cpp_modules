@@ -2,7 +2,6 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
-#include <string>
 #include <map>
 #include <fstream>
 #include <sstream>
@@ -10,6 +9,7 @@
 class BitcoinExchange {
 private:
     std::map<std::string, float> data;
+    // data["2002-02-27", 0.13]
 
     bool isValidDate(const std::string &date) const;
     bool isValidValue(const std::string &valueStr, float &value) const;
